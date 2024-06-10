@@ -1,0 +1,13 @@
+TOKEN "CHART_READ_TOKEN" READ
+
+NODE endpoint
+SQL >
+
+    %
+    SELECT toStartOfDay(timestamp) as time, airline, count() as bookings
+    FROM events
+    WHERE airline == {{ String(airline, 'Fizz', description="Airline to filter by", required=True) }}
+    GROUP BY time, airline
+    ORDER BY time desc
+
+

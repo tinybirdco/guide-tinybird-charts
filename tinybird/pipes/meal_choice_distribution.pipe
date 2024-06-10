@@ -1,0 +1,10 @@
+TOKEN "CHART_READ_TOKEN" READ
+
+NODE endpoint
+SQL >
+
+    SELECT meal_choice, count(meal_choice) as total FROM events
+    group by meal_choice 
+    order by total desc
+
+

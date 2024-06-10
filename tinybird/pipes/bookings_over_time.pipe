@@ -1,0 +1,10 @@
+TOKEN "CHART_READ_TOKEN" READ
+
+NODE endpoint
+SQL >
+
+    SELECT count() as bookings, toStartOfDay(timestamp) as time FROM events
+    group by time
+    order by time desc
+
+

@@ -8,7 +8,5 @@ SQL >
         count() as bookings
     FROM events
     GROUP BY airline
-    ORDER BY bookings DESC
-    LIMIT 5
 
 
