@@ -1,4 +1,5 @@
 'use client'
+
 import { useState } from "react";
 
 import { TopAirlines } from "./charts/Bar_TopAirlines";

@@ -11,7 +11,6 @@ export function BookingsOverTimeByAirline(
             token={token}
             index="time"
             categories={['bookings']}
-            colorPalette={['#27F795', '#008060', '#0EB1B9']}
             title="Bookings over time (by selected airline)"
             description="Booking volume per day by airline"
             params={{ airline: airline }}
