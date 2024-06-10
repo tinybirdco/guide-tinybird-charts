@@ -1,0 +1,14 @@
+TOKEN "top_airlines_read_static" READ
+
+NODE endpoint
+SQL >
+
+    SELECT
+        airline,
+        count() as bookings
+    FROM events
+    GROUP BY airline
+    ORDER BY bookings DESC
+    LIMIT 10
+
+
