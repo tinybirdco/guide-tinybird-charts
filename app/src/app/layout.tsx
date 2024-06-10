@@ -24,7 +24,6 @@ export default function RootLayout({
         "min-h-screen bg-slate-100 font-sans antialiased mb-8",
         fontSans.variable
       )}>
-        {/* <NavBar /> */}
         {children}
       </body>
     </html>
