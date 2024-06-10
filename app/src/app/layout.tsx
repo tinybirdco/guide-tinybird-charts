@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(
-        "min-h-screen bg-slate-100 font-sans antialiased",
+        "min-h-screen bg-slate-100 font-sans antialiased mb-8",
         fontSans.variable
       )}>
         {/* <NavBar /> */}
