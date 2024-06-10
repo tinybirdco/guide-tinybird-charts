@@ -9,8 +9,8 @@ export function TopAirlines({ token }: { token: string }) {
       token={token}
       index="airline"
       categories={['bookings']}
-      title="Top 10 Airlines"
-      description="Top 10 airlines ranked by booking volume"
+      title="Top Airlines"
+      description="Top airlines ranked by booking volume"
       height="300px"
       padding="16px"
       borderRadius="8px"
