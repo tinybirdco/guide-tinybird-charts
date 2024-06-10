@@ -15,4 +15,4 @@ SCHEMA >
 
 ENGINE "MergeTree"
 ENGINE_PARTITION_KEY "toYear(timestamp)"
-ENGINE_SORTING_KEY "timestamp, passport_number, priority_boarding, transaction_id"
+ENGINE_SORTING_KEY "airline, timestamp"

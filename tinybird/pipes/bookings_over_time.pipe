@@ -3,8 +3,9 @@ TOKEN "CHART_READ_TOKEN" READ
 NODE endpoint
 SQL >
 
-    SELECT count() as bookings, toStartOfDay(timestamp) as time FROM events
-    group by time
-    order by time desc
+    SELECT count() AS bookings, toStartOfDay(timestamp) AS time FROM events
+    WHERE time > toDate('2023-12-31') AND time < toDate('2026-06-10') 
+    GROUP BY time
+    ORDER BY time DESC
 
 
