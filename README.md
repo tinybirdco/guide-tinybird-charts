@@ -5,7 +5,7 @@ This repo contains a minimal example demonstrating:
 1. Creating Tinybird Charts from the UI
 2. Integrating Tinybird Charts into a Next.js frontend
 
-You can read more about Tinybird Charts in the [documentation](https://www.tinybird.co/docs/publish/charts), and there is a full [end-to-end guide](https://www.tinybird.co/docs/guides/integrate/integrate-charts-nextjs) covering this example.
+You can read more about Tinybird Charts in the [documentation](https://www.tinybird.co/docs/publish/charts), and there is a full [end-to-end guide](https://www.tinybird.co/docs/guides/integrate/add-charts-to-nextjs) covering this example.
 
 ## Run the example locally
 
