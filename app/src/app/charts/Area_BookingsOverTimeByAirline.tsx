@@ -3,7 +3,7 @@
 import { AreaChart } from '@tinybirdco/charts'
 
 export function BookingsOverTimeByAirline(
-    { token, airline }: { token: string, airline: string },
+    { token, airline, dateParams }: { token: string, airline: string, dateParams: { date_from: string, date_to: string } },
 ) {
     return (
         <AreaChart
@@ -13,7 +13,7 @@ export function BookingsOverTimeByAirline(
             categories={['bookings']}
             title="Bookings over time (by selected airline)"
             description="Booking volume per day by airline"
-            params={{ airline: airline }}
+            params={{ airline: airline, ...dateParams }}
             height="300px"
             padding="16px"
             borderRadius="8px"

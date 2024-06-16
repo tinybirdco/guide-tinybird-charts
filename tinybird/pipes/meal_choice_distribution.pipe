@@ -3,8 +3,12 @@ TOKEN "CHART_READ_TOKEN" READ
 NODE endpoint
 SQL >
 
+    %
     SELECT meal_choice, count(meal_choice) as total FROM events
-    group by meal_choice 
-    order by total desc
+    WHERE 1
+        AND timestamp > {{ Date(date_from, '2024-01-01', description="Date from", required=True) }}
+        AND timestamp < {{ Date(date_to, '2024-06-10', description="Date to", required=True) }}
+    GROUP BY meal_choice 
+    ORDER BY total DESC
 
 

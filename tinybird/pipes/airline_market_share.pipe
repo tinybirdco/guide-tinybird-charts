@@ -3,10 +3,14 @@ TOKEN "CHART_READ_TOKEN" READ
 NODE endpoint
 SQL >
 
+    %
     SELECT
         airline,
         count() as bookings
     FROM events
+    WHERE 1
+        AND timestamp > {{ Date(date_from, '2024-01-01', description="Date from", required=True) }}
+        AND timestamp < {{ Date(date_to, '2024-06-10', description="Date to", required=True) }}
     GROUP BY airline
 
 

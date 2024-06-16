@@ -6,7 +6,11 @@ SQL >
     %
     SELECT toStartOfDay(timestamp) as time, airline, count() as bookings
     FROM events
-    WHERE airline == {{ String(airline, 'Fizz', description="Airline to filter by", required=True) }}
-    AND timestamp > toDate('2023-12-31') AND timestamp < toDate('2026-06-10') 
+    WHERE
+        airline == {{ String(airline, 'Fizz', description="Airline to filter by", required=True) }}
+        AND timestamp > {{ Date(date_from, '2024-01-01', description="Date from", required=True) }}
+        AND timestamp < {{ Date(date_to, '2024-06-10', description="Date to", required=True) }}
     GROUP BY time, airline
     ORDER BY time desc
+
+
