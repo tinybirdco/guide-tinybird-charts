@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-select": "^2.0.0",
-    "@tinybirdco/charts": "^0.0.10",
+    "@tinybirdco/charts": "^0.0.12",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "echarts": "^5.5.0",
