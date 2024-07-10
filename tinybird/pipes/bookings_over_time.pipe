@@ -9,6 +9,6 @@ SQL >
         AND timestamp > {{ Date(date_from, '2024-01-01', description="Date from", required=True) }}
         AND timestamp < {{ Date(date_to, '2024-06-10', description="Date to", required=True) }}
     GROUP BY time
-    ORDER BY time DESC
+    ORDER BY time ASC
 
 
