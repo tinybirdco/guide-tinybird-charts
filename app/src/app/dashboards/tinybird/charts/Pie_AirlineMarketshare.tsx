@@ -2,7 +2,13 @@
 
 import { PieChart } from '@tinybirdco/charts'
 
-export function AirlineMarketShare({ token, dateParams }: { token: string, dateParams: { date_from: string, date_to: string } }) {
+export function AirlineMarketShare({
+  token,
+  dateParams,
+}: {
+  token: string
+  dateParams: { date_from: string; date_to: string }
+}) {
   return (
     <PieChart
       endpoint="https://api.tinybird.co/v0/pipes/airline_market_share.json"
@@ -16,6 +22,11 @@ export function AirlineMarketShare({ token, dateParams }: { token: string, dateP
       padding="16px"
       borderRadius="8px"
       params={{ ...dateParams }}
+      options={{
+        yAxis: {
+          show: false,
+        },
+      }}
     />
   )
 }

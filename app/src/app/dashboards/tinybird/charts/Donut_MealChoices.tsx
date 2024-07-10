@@ -2,7 +2,13 @@
 
 import { DonutChart } from '@tinybirdco/charts'
 
-export function MealChoicePopularity({ token, dateParams }: { token: string, dateParams: { date_from: string, date_to: string } }) {
+export function MealChoicePopularity({
+  token,
+  dateParams,
+}: {
+  token: string
+  dateParams: { date_from: string; date_to: string }
+}) {
   return (
     <DonutChart
       endpoint="https://api.tinybird.co/v0/pipes/meal_choice_distribution.json"
@@ -16,6 +22,11 @@ export function MealChoicePopularity({ token, dateParams }: { token: string, dat
       padding="16px"
       borderRadius="8px"
       params={{ ...dateParams }}
+      options={{
+        yAxis: {
+          show: false,
+        },
+      }}
     />
   )
 }

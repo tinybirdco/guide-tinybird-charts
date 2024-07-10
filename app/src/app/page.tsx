@@ -2,27 +2,17 @@
 
 import { useState } from "react";
 
-import { TopAirlines } from "./charts/Bar_TopAirlines";
-import { DailyBookingVolumeTotal } from "./charts/Line_BookingsOverTime";
-import { AirlineMarketShare } from "./charts/Pie_AirlineMarketshare";
-import { MealChoicePopularity } from "./charts/Donut_MealChoices";
-import { BookingsOverTimeByAirline } from "./charts/Area_BookingsOverTimeByAirline";
-
-import { AirlineSelect } from "@/components/AirlineSelect";
 import { DatePickerWithRange } from "@/components/DatePickerWithRange";
-
-import { dateRangeToParams } from "@/lib/utils";
+import { ChartProviderControl } from "@/components/ChartProviderControl";
 
 import { DateRange } from "react-day-picker";
+import TinybirdDashboard from "./dashboards/tinybird/TinybirdDashboard";
+import ShadcnDashboard from "./dashboards/shadcncharts/TinybirdDashboard";
 
 const pageTitle = "Tinybird Charts Demo";
 const token = process.env.NEXT_PUBLIC_TINYBIRD_STATIC_READ_TOKEN ?? '';
 
 export default function StaticDashboard() {
-  const [airline, setAirline] = useState('Fizz');
-  const handleAirlineChange = (value: string) => {
-    setAirline(value);
-  };
 
   const [dateRange, setDateRange] = useState<DateRange>({
     from: new Date(2024, 0, 1),
@@ -32,24 +22,22 @@ export default function StaticDashboard() {
     setDateRange(value);
   };
 
+  const [chartProvider, setChartProvider] = useState(0);
+  const handleChartProviderChange = (value: number) => {
+    setChartProvider(value);
+  };
+
   return (
     <main className="mx-auto w-3/4">
-      <h1 className="text-2xl font-bold my-8">{pageTitle}</h1>
+      <div className="container mx-auto flex justify-between items-center">
+        <h1 className="text-2xl font-bold my-8">{pageTitle}</h1>
+        <ChartProviderControl provider={chartProvider} onChange={handleChartProviderChange} />
+      </div>
       <div className="flex justify-end mb-8">
         <DatePickerWithRange date={dateRange} onChange={handleDateRangeChange} />
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        <TopAirlines token={token} dateParams={dateRangeToParams(dateRange)} />
-        <DailyBookingVolumeTotal token={token} dateParams={dateRangeToParams(dateRange)} />
-        <AirlineMarketShare token={token} dateParams={dateRangeToParams(dateRange)} />
-        <MealChoicePopularity token={token} dateParams={dateRangeToParams(dateRange)} />
-      </div>
-      <div>
-        <div className="my-4">
-          <AirlineSelect airline={airline} onChange={handleAirlineChange} />
-        </div>
-        <BookingsOverTimeByAirline token={token} airline={airline} dateParams={dateRangeToParams(dateRange)} />
-      </div>
+      {chartProvider === 0 && <TinybirdDashboard dateRange={dateRange} token={token} />}
+      {chartProvider === 1 && <ShadcnDashboard dateRange={dateRange} token={token} />}
     </main>
   );
 }

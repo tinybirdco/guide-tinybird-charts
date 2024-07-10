@@ -20,7 +20,7 @@ You can read more about Tinybird Charts in the [documentation](https://www.tinyb
 Install app dependencies. From the root of the repo:
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### Add your Tinybird parameters
@@ -41,7 +41,7 @@ NEXT_PUBLIC_TINYBIRD_STATIC_READ_TOKEN="STATIC READ TOKEN"
 Run it locally:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Then open [http://localhost:3000](http://localhost:3000) with your browser.
