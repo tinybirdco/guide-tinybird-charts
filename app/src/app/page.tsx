@@ -7,7 +7,7 @@ import { ChartProviderControl } from "@/components/ChartProviderControl";
 
 import { DateRange } from "react-day-picker";
 import TinybirdDashboard from "./dashboards/tinybird/TinybirdDashboard";
-import ShadcnDashboard from "./dashboards/shadcncharts/TinybirdDashboard";
+import ShadcnDashboard from "./dashboards/shadcncharts/ShadcnDashboard";
 
 const pageTitle = "Tinybird Charts Demo";
 const token = process.env.NEXT_PUBLIC_TINYBIRD_STATIC_READ_TOKEN ?? '';
